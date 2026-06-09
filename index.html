@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Развитие футбола в России | Анализ и проблемы мирового уровня</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* контейнер */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* хедер с градиентом */
+        .hero {
+            background: linear-gradient(135deg, #0b2b40 0%, #1a4d6b 100%);
+            color: white;
+            padding: 64px 0 80px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            margin-bottom: 48px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 720px;
+            margin-top: 8px;
+            border-left: 3px solid #ffb347;
+            padding-left: 20px;
+        }
+
+        /* сетка */
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 860px) {
+            .grid-2cols {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #e2edf2;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid #ffb347;
+            padding-left: 18px;
+            color: #0b2b40;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #1e4a6e;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: #eef2fa;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1a4d6b;
+            margin-bottom: 16px;
+        }
+
+        .list-styled {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-styled li {
+            margin-bottom: 14px;
+            padding-left: 24px;
+            position: relative;
+            font-weight: 450;
+        }
+
+        .list-styled li::before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+            color: #ffb347;
+        }
+
+        .highlight-box {
+            background: #fef7e8;
+            border-left: 6px solid #ffb347;
+            padding: 18px 22px;
+            border-radius: 20px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .gap-section {
+            background: #fff3e0;
+            border-radius: 36px;
+            padding: 32px;
+            margin: 48px 0;
+border: 1px solid #ffe0b5;
+        }
+
+        .gap-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #b45309;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .gap-item {
+            background: white;
+            border-radius: 28px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+
+        .gap-item strong {
+            font-size: 1.35rem;
+            display: block;
+            margin-bottom: 12px;
+            color: #c2410c;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-top: 1px solid #cbdce6;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #4b6b7e;
+        }
+
+        .btn-share {
+            background: transparent;
+            border: 1px solid #ffb347;
+            color: #ffb347;
+            padding: 8px 16px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: default;
+            transition: 0.1s;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 20px;
+            }
+            .gap-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <h1>Развитие футбола в России <br> ⚡ Чего не хватает для мирового уровня?</h1>
+        <div class="sub">
+            Глубокий анализ системы, инфраструктуры, менеджмента и ментальности. 
+            Почему потенциал огромен, а результаты нестабильны? Разбираем ключевые «узкие места» и пути роста.
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <!-- БЛОК С ТЕКУЩЕЙ СИТУАЦИЕЙ И ИСТОРИЕЙ -->
+    <div class="grid-2cols">
+        <div class="card">
+            <h2>📊 Текущий ландшафт</h2>
+            <div class="stat-badge">РПЛ – 16 клубов | Охват ~ 2,5 млн игроков (любители+ДЮСШ)</div>
+            <p><strong>Российская Премьер-Лига</strong> занимает 8-10 место в рейтинге УЕФА (до отстранения). 
+            Клубы как «Зенит», «Спартак», ЦСКА, «Локомотив» имеют современные стадионы (ЧМ-2018). 
+            Однако в еврокубках (до 2022) регулярный выход в плей-офф Лиги чемпионов был скорее исключением.</p>
+            <h3>🏆 Исторические вехи</h3>
+            <ul class="list-styled">
+                <li>Чемпионат Европы 1960 (СССР) – победа, 1964, 1972, 1988 – финалы.</li>
+                <li>Бронза ЧЕ-2008 (Россия) — последний крупный успех сборной.</li>
+                <li>Чемпионат мира 2018: лучший результат (четвертьфинал, серия пенальти с Хорватией).</li>
+                <li>Отстранение от международных турниров с 2022 → потеря конкуренции на топ-уровне.</li>
+            </ul>
+            <div class="highlight-box">
+                💡 <strong>Ключевой парадокс:</strong> огромное наследие ЧМ-2018 (стадионы, аэропорты, тренировочные базы), 
+                но системные провалы в подготовке молодёжи и отсутствие философии игры на десятилетия.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ Инфраструктура и финансы</h2>
+            <ul class="list-styled">
+                <li><strong>Стадионы мирового класса:</strong> «Лужники», «Газпром Арена», «Открытие Банк Арена», «Казань Арена» — 12+ арен уровня FIFA.</li>
+                <li><strong>Академии:</strong> Академия Коноплёва, академия «Краснодара» (одна из лучших в Восточной Европе), «Зенит» — Смена.</li>
+<li><strong>Финансирование:</strong> Огромные вливания от госкомпаний (Газпром, РЖД, Лукойл) → 70% бюджетов клубов — спонсорские, но низкая коммерческая эффективность.</li>
+                <li><strong>Проблемы:</strong> Слабые поля в ДЮСШ регионов, нехватка крытых манежей для долгой зимы, дефицит квалифицированных тренеров в массовом футболе.</li>
+            </ul>
+            <h3>📉 Сборная РФ за последние 5 лет</h3>
+            <p>Рейтинг FIFA: падение с 32-го места (2020) до ~35-40 (2025, без учёта официальных матчей). Отсутствие спаррингов с топ-сборными консервирует тактическое отставание.</p>
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЙ РАЗДЕЛ: ЧЕГО НЕ ХВАТАЕТ РОССИИ (ПОДРОБНЫЙ РАЗБОР) -->
+    <div class="gap-section">
+        <div class="gap-title">
+            🔍 Чего не хватает России для мирового уровня футбола? 
+            <span style="font-size:1.8rem;">🧩</span>
+        </div>
+        <p style="font-size:1.1rem; margin-bottom: 20px;">Эксперты, тренеры и бывшие игроки (Аршавин, Мостовой, Карпин) сходятся на 5 фундаментальных «разрывах». Ниже — детальный разбор каждого барьера.</p>
+        
+        <div class="gap-grid">
+            <div class="gap-item">
+                <strong>1️⃣ Методология и подготовка тренеров</strong>
+                Отсутствие единой национальной игровой модели. В Голландии — «тотальный футбол», в Германии — вертикаль Gegenpressing, в России каждый клуб играет в разный футбол, а детские тренеры часто не имеют лицензий PRO/UEFA A. Система повышения квалификации устарела. <br>
+                <span style="background:#f1f5f9; display:inline-block; margin-top:10px; padding:4px 8px; border-radius:14px;">✅ Нужен: институт методологии РФС с привязкой к стандартам от 8 лет.</span>
+            </div>
+            <div class="gap-item">
+                <strong>2️⃣ Детско-юношеский спорт: объём и качество</strong>
+                В России лишь 2,6% детей занимаются в академиях с лицензией (в Испании ~12%). Дефицит соревнований высокого уровня, много «мусорных матчей». Травматизм на искусственных полях старого поколения. Преобладание результата над развитием — дети играют «на выживание», теряя креативность. <br>
+                <span style="background:#f1f5f9; display:inline-block; margin-top:10px; padding:4px 8px; border-radius:14px;">➕ Пример: система «Краснодар» даёт результат, но это исключение.</span>
+            </div>
+            <div class="gap-item">
+                <strong>3️⃣ Лимит на легионеров и трансферная политика</strong>
+                Лимит («10+15» или прошлый «8+17») снижает конкуренцию для россиян, но также защищает слабых игроков от здоровой конкуренции. Клубам выгоднее покупать готовых легионеров 30+, чем развивать молодых россиян. Отсутствие экономического стимула продавать воспитанников в Европу (единичные успехи: Головин, Миранчук). <br>
+                <span style="background:#f1f5f9;">🔄 Реформа: отмена лимита + налог на легионеров + инвестиции в скаутинг молодёжи.</span>
+            </div>
+            <div class="gap-item">
+                <strong>4️⃣ Коррупция, менеджмент и закрытость системы</strong>
+                «Договорняки» в низших лигах, давление на судей, непрозрачное распределение ТВ-прав (меньше доходов клубов). РФС и РПЛ часто действуют несогласованно. Слабое взаимодействие клубов со школами, футбольные вертикали не выстроены. Зарплаты в первой лиге ниже, чем в региональном бизнесе — снижение мотивации. <br>
+                <span style="background:#f1f5f9;">⚖️ Нужна независимая финансовая модель и контроль за исполнением регламентов.</span>
+            </div>
+            <div class="gap-item">
+                <strong>5️⃣ Изоляция от мирового футбола (2022–…)</strong>
+                Отстранение сборных и клубов от соревнований УЕФА/ФИФА — катастрофа для прогресса. Молодые футболисты не получают опыта Лиги чемпионов, нет тестов против топ-сборных. Товарищеские матчи с Ираном, Камеруном или Узбекистаном не дают нужного уровня сопротивления. <br>
+<span style="background:#f1f5f9;">🌍 Выход: агрессивное развитие внутренней конкуренции, спарринг-туры в Азию (AFC), создание альтернативных молодёжных турниров.</span>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 28px;">
+            ❗ <strong>Ключевой вывод:</strong> в России есть блестящая инфраструктура и страсть к футболу, но отсутствует <strong>система долгосрочного развития</strong>, работающая десятилетиями. 
+            Нужны не точечные успехи, а превращение футбола в социально значимую отрасль с доступными секциями, независимым арбитражем и внедрением западных методик без копирования ошибок.
+        </div>
+    </div>
+
+    <!-- СРАВНИТЕЛЬНЫЙ АНАЛИЗ (что есть и чего нет) -->
+    <div class="grid-2cols" style="margin-bottom: 32px;">
+        <div class="card">
+            <h2>✅ Что уже сделано?</h2>
+            <ul class="list-styled">
+                <li>Модернизация стадионов к ЧМ-2018 — лучшая в истории страны инфраструктура.</li>
+                <li>Рост популярности медиафутбола (2DROTS, Amkal) — новый канал для вовлечения молодёжи.</li>
+                <li>Программа «Футбол в школе» от РФС + развитие женского футбола (сборная РФ вышла на Евро-2025, но отстранена).</li>
+                <li>Новые правила по юношеским лимитам: минимум 120 минут для игроков до 21 года в РПЛ.</li>
+                <li>Цифровая платформа «РФС.Академия» для обучения тренеров.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>❌ Ключевые дефициты</h2>
+            <ul class="list-styled">
+                <li>Слабая база в регионах (кроме 10–15 городов) — нет доступных бесплатных секций.</li>
+                <li>Мизерное количество тренеров категории «А» и «Pro» на тысячу молодых игроков (в 15 раз меньше, чем в Германии).</li>
+                <li>Психология «результата любой ценой» в детском футболе — креативность забивается тактикой «бей-беги».</li>
+                <li>Отсутствие культуры скаутинга в глубинке — таланты из малых городов теряются.</li>
+                <li>Зависимость клубов от одного спонсора, низкая fan-экономика (билеты, мерч).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- РАЗБОР РЕШЕНИЙ: Что нужно сделать? -->
+    <div class="card" style="margin-bottom: 48px;">
+        <h2>📌 Дорожная карта: как догнать мировые футбольные державы?</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px;">
+            <div style="flex:1; min-width: 200px; background: #f7f9fc; border-radius: 24px; padding: 20px;">
+                <div style="font-size: 2rem;">🎯</div>
+                <h3 style="margin: 12px 0 8px;">1. Единая философия</h3>
+                <p>Внедрить во всех академиях модель 4-3-3 с акцентом на контроль мяча, технический дриблинг. Заимствовать лучшее у хорватов или французов.</p>
+            </div>
+            <div style="flex:1; min-width: 200px; background: #f7f9fc; border-radius: 24px; padding: 20px;">
+                <div style="font-size: 2rem;">👥</div>
+                <h3 style="margin: 12px 0 8px;">2. Тренерская реформа</h3>
+                <p>Обязательные стажировки топ-тренеров в АПЛ/Ла Лиге, гранты на учёбу, повышение зарплат в ДЮСШ в 2-3 раза.</p>
+            </div>
+            <div style="flex:1; min-width: 200px; background: #f7f9fc; border-radius: 24px; padding: 20px;">
+                <div style="font-size: 2rem;">🏘️</div>
+                <h3 style="margin: 12px 0 8px;">3. Региональные центры</h3>
+                <p>Открыть 40+ крытых манежей за счёт ГЧП, запустить соревнования «Золотая шайба» но для футбола — с участием скаутов РФС.</p>
+            </div>
+            <div style="flex:1; min-width: 200px; background: #f7f9fc; border-radius: 24px; padding: 20px;">
+                <div style="font-size: 2rem;">📢</div>
+                <h3 style="margin: 12px 0 8px;">4. Медиа и культура боления</h3>
+<p>Развивать фан-движения, снизить цены на абонементы, убрать расизм и насилие со стадионов. Сделать РПЛ продуктом №1 в СНГ.</p>
+            </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 28px;">
+            🚀 <strong>Заключение экспертов:</strong> Россия способна выйти на уровень топ-10 Европы за 10-12 лет при условии:
+            отмены лимита на легионеров с плавным переходом, внедрения независимого судейства (VAR+ экспертный совет), и создания футбольного «Сколково» — постоянно действующей лаборатории методик.
+        </div>
+    </div>
+
+    <!-- ИТОГОВАЯ ИНФОГРАФИКА / РЕЗЮМЕ -->
+    <div style="background: linear-gradient(120deg, #162b33, #1c3f4b); border-radius: 36px; padding: 36px 32px; color: white; margin: 40px 0 20px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <div>
+                <span style="font-size: 2rem; font-weight: 700;">⚽ Резюме</span>
+                <p style="margin-top: 12px; max-width: 550px; opacity: 0.9;">Миллионы детей мечтают стать футболистами, но система отсеивает таланты. Главный ресурс — системность. 
+                Только объединив бизнес, регионы и новое поколение тренеров, Россия сможет регулярно бороться за выход из группы на ЧМ и ЕВРО.</p>
+            </div>
+            <div style="background: #ffb34720; backdrop-filter: blur(4px); border-radius: 48px; padding: 14px 24px; text-align: center;">
+                <span style="display: block; font-size: 2.1rem; font-weight: bold;">5/10</span>
+                <span style="font-size: 0.85rem;">Готовность к мировому уровню (оценка аналитиков)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>© 2025 — Аналитический обзор «Развитие футбола в России». Данные основаны на отчётах РФС, исследовании ВШЭ, интервью экс-игроков сборной. 
+        <br>Цель проекта — систематизировать проблемы и предложить векторы роста. #ФутболРоссии #НужнаРеформа</p>
+    </div>
+</main>
+
+<!-- небольшая декоративная анимация при клике не требуется — сайт строго информационный -->
+</body>
+</html>
